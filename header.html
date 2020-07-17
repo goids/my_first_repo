@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500;600;800;900&display=swap" rel="stylesheet">
+    <title>Header</title>
+</head>
+<style>
+
+    body{
+        margin:0px;
+        background-color: #8F57FD;
+        font-family: 'Muli', sans-serif;
+    }
+
+    .header{
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__img{
+        width: 200px;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .header__menu{
+        margin-right: 30px;
+    }
+
+    .header__menu ul{
+        display: none;
+        list-style: none;
+        padding: 0px;
+        position: absolute;
+        text-align: right;
+        margin: 0px 0px 0px -14px;
+    }
+
+    .header__menu:hover ul,
+    ul:hover{
+        display: block;
+    }
+
+    .header__menu li{
+        margin:10px 0px;
+    }
+
+    .header__menu li a{
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .header__menu li a:hover{
+        text-decoration: underline;
+    }
+
+    .header__menu--profile{
+        margin-right: 8px;
+        display: flex;
+        align-items: center;
+    }
+
+    .header__menu--profile img{
+        margin-right: 8px;
+        width: 40px;
+    }
+
+    .header__menu--profile p{
+        margin: 0px;
+        color:#fff;
+    }
+
+    .main{
+        height: 300px;
+    }
+
+    .main__title{
+        color:#fff;
+        font-size: 25px;
+    }
+
+    .input{
+        background-color:rgba(255,255,255,.1);
+        border: 2px solid #fff;
+        border-radius: 35px;
+        color: #fff;
+        font-family: 'Muli', sans-serif;
+        font-size: 16px;
+        width: 70%;
+        height: 50px;
+        padding: 0px 20px;
+    }
+
+    /*Color del input*/
+    ::placeholder{
+        color: #fff;
+    }
+
+    /*Quitarle la linea que rodea al input cuando esta en foco*/
+    :focus{
+        outline: none;
+    }
+
+    /*CAROUSEL*/
+    .carousel{
+        width: 100%;
+        overflow: scroll;
+        padding: 30px;
+        position: relative;
+    }
+
+    .carousel__container{
+        /*normal: los espacios en blanco sobrantes y los saltos de línea se eliminan. No obstante, el texto se muestra en tantas líneas como sea necesario para que sus contenidos no se salgan del elemento contenedor.*/
+        /*nowrap: se comporta igual que normal en los espacios en blanco, pero no añade saltos de línea en el texto original, por lo que los contenidos se pueden salir de su elemento contenedor.*/
+        white-space: nowrap;
+        margin: 70px 0px;
+        padding-bottom: 10px;
+    }
+
+    .carousel-item{
+        background-color: red;
+        width: 200px;
+        height: 250px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-right: 10px;
+        display: inline-block;
+        cursor: pointer;
+        transition: 450ms all;
+        transform-origin: center left;
+        position: relative;
+    }
+
+    .carousel-item:hover ~ .carousel-item{
+        transform: translate3d(100px, 0, 0);
+    }
+
+    .carousel__container:hover .carousel-item{
+        opacity: .3;
+    }
+
+    .carousel__container:hover .carousel-item:hover{
+        transform: scale(1.5);
+        opacity: 1;
+    }
+
+    .carousel-item__img{
+        width: 200px;
+        height: 250px;
+        object-fit:cover; /*redimensionarse para ajustarse a su contenedor.*/
+        object-position:center;/*punto desde donde se debe tener en cuenta la pocision de la imagen*/
+    }
+
+    .carousel-item__details{
+        background: linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,0) 100%);
+        font-size: 10px;
+        opacity: 0;
+        transition: 450ms opacity;
+        padding: 10px;position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        color:#fff;
+    }
+
+    .carousel-item__details:hover{
+        opacity: 1;
+    }
+
+</style>
+<body>
+    <header class="header">
+        <img class="header__img" src="./logo-platzi-video-BW2.png" alt="Logo Platzi">
+        <nav class="header__menu">
+            <div class="header__menu--profile">
+                <img src="./user-icon.png" alt="User">
+                <p>Perfil</p>
+            </div>
+            <ul>
+                <li><a href="#">Cuenta</a></li>
+                <li><a href="#">Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="main">
+        <h2 class="main__title">¿Que quieres ver hoy?</h2>
+        <input class="input" type="text" placeholder="Buscar...">
+    </section>
+
+    <section class="carousel">
+        <div class="carousel__container">
+            <div class="carousel-item">
+                <img class="carousel-item__img" src="https://photo-cdn.icons8.com/assets/previews/435/d292be34-760d-4f82-977c-831619e128321x.jpg" alt="imagen">
+                <div class="carousel-item__details">
+                    <div>
+                        <img src="https://img.icons8.com/flat_round/64/000000/play--v1.png"/>
+                        <img src="https://img.icons8.com/flat_round/64/000000/plus.png"/>
+                    </div>
+                    <p class="carousel-item__details--title">Título descriptivo</p>
+                    <p class="carousel-item__details--subtitle">20120 16+ 114 minutos</p>
+                </div>
+                
+            </div>
+            <div class="carousel-item"></div>
+        </div>
+    </section>
+</body>
+</html>
